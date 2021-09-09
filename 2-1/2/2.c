@@ -2,7 +2,7 @@
 
 int myStrCmp(const char *lhs, const char *rhs)
 {
-    unsigned int i = 0;
+    size_t i = 0;
 
     while(lhs[i] != '\0' && rhs[i] != '\0' && lhs[i] == rhs[i])
     {
