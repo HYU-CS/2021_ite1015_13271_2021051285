@@ -38,9 +38,22 @@ int main(void)
     }
 
     arr = (int **)malloc(sizeof(int *) * n);
+    if(arr == NULL)
+    {
+        printf("Memory Allocation Failed. Out of memory. Exiting...");
+
+        return -1;
+    }
     for(size_t i = 0; i < n; i++)
     {
-        *(arr + i) = (int *)calloc((size_t)n, sizeof(int));
+        arr[i] = (int *)calloc((size_t)n, sizeof(int));
+
+        if(arr[i] == NULL)
+        {
+            printf("Memory Allocation Failed. Out of memory. Exiting...");
+
+            return -1;
+        }
     }
 
     y = 0; x = 0;

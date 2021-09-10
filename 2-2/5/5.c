@@ -44,6 +44,13 @@ int main(void)
     }
 
     students = (struct Student *)malloc(sizeof(struct Student) * N);
+    
+    if(students == NULL)
+    {
+        printf("Memory Allocation Failed. Out of memory. Exiting...");
+
+        return -1;
+    }
 
     for(int i = 0; i < N; i++)
     {

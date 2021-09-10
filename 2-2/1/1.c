@@ -75,6 +75,13 @@ int main(void)
         {
             int *temp = (int *)malloc(sizeof(int) * (num_1_divisor_size + 1));
 
+            if(temp == NULL)
+            {
+                printf("Memory Allocation Failed. Out of memory. Exiting...");
+
+                return -1;
+            }
+
             for(size_t index = 0; index < num_1_divisor_size; index++)
             {
                 temp[index] = num_1_divisor[index];
@@ -93,6 +100,13 @@ int main(void)
         {
             int *temp = (int *)malloc(sizeof(int) * (num_2_divisor_size + 1));
 
+            if(temp == NULL)
+            {
+                printf("Memory Allocation Failed. Out of memory. Exiting...");
+
+                return -1;
+            }
+
             for(size_t index = 0; index < num_2_divisor_size; index++)
             {
                 temp[index] = num_2_divisor[index];
@@ -110,6 +124,13 @@ int main(void)
         if(num_1 % i == 0 && num_2 % i == 0)
         {
             int *temp = (int *)malloc(sizeof(int) * (gcd_divisor_size + 1));
+
+            if(temp == NULL)
+            {
+                printf("Memory Allocation Failed. Out of memory. Exiting...");
+
+                return -1;
+            }
 
             for(size_t index = 0; index < gcd_divisor_size; index++)
             {
