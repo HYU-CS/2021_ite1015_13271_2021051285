@@ -48,6 +48,8 @@ int main(void)
                 ch = getchar();
             }
             while (ch != '\n' && ch != EOF);
+
+            printf("Only digits(0-9) are allowed.\n");
             
             continue;
         }
@@ -74,7 +76,7 @@ int main(void)
             }
             while (ch != '\n' && ch != EOF);
 
-            printf("Only digits(0-9) are allowed.");
+            printf("Only digits(0-9) are allowed.\n");
 
             continue;
         }

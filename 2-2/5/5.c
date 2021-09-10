@@ -33,7 +33,7 @@ int main(void)
             }
             while (ch != '\n' && ch != EOF);
 
-            printf("Only digits(0-9) are allowed.");
+            printf("Only digits(0-9) are allowed.\n");
             
             continue;
         }
@@ -49,7 +49,7 @@ int main(void)
     
     if(students == NULL)
     {
-        printf("Memory Allocation Failed. Out of memory. Exiting...");
+        printf("Memory Allocation Failed. Out of memory. Exiting...\n");
 
         return -1;
     }

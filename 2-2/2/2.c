@@ -60,7 +60,7 @@ int main(void)
             }
             while (ch != '\n' && ch != EOF);
 
-            printf("Only digits(0-9) are allowed.");
+            printf("Only digits(0-9) are allowed.\n");
             
             continue;
         }

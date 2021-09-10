@@ -26,7 +26,7 @@ int main(void)
                 ch = getchar();
             } while (ch != '\n' && ch != EOF);
 
-            printf("Only digits(0-9) are allowed.");
+            printf("Only digits(0-9) are allowed.\n");
             
             continue;
         }
@@ -42,7 +42,7 @@ int main(void)
     arr = (int **)malloc(sizeof(int *) * n);
     if(arr == NULL)
     {
-        printf("Memory Allocation Failed. Out of memory. Exiting...");
+        printf("Memory Allocation Failed. Out of memory. Exiting...\n");
 
         return -1;
     }
@@ -52,7 +52,7 @@ int main(void)
 
         if(arr[i] == NULL)
         {
-            printf("Memory Allocation Failed. Out of memory. Exiting...");
+            printf("Memory Allocation Failed. Out of memory. Exiting...\n");
 
             return -1;
         }

@@ -31,6 +31,8 @@ int main(void)
                 ch = getchar();
             }
             while (ch != '\n' && ch != EOF);
+
+            printf("Only digits(0-9) are allowed.\n");
             
             continue;
         }
@@ -57,7 +59,7 @@ int main(void)
             }
             while (ch != '\n' && ch != EOF);
 
-            printf("Only digits(0-9) are allowed.");
+            printf("Only digits(0-9) are allowed.\n");
 
             continue;
         }
@@ -79,7 +81,7 @@ int main(void)
 
             if(temp == NULL)
             {
-                printf("Memory Allocation Failed. Out of memory. Exiting...");
+                printf("Memory Allocation Failed. Out of memory. Exiting...\n");
 
                 return -1;
             }
@@ -104,7 +106,7 @@ int main(void)
 
             if(temp == NULL)
             {
-                printf("Memory Allocation Failed. Out of memory. Exiting...");
+                printf("Memory Allocation Failed. Out of memory. Exiting...\n");
 
                 return -1;
             }
@@ -129,7 +131,7 @@ int main(void)
 
             if(temp == NULL)
             {
-                printf("Memory Allocation Failed. Out of memory. Exiting...");
+                printf("Memory Allocation Failed. Out of memory. Exiting...\n");
 
                 return -1;
             }
