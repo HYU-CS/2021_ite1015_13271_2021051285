@@ -72,5 +72,7 @@ int main(void)
         printf("Student %d's grade is %c\n", i, students[i].grade);
     }
 
+    free(students);
+
     return 0;
 }

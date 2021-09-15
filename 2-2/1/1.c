@@ -166,5 +166,9 @@ int main(void)
 
     printf("Total common divisor : %zu\n", gcd_divisor_size);
 
+    free(num_1_divisor);
+    free(num_2_divisor);
+    free(gcd_divisor);
+
     return 0;
 }
