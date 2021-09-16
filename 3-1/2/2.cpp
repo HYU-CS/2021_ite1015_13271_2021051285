@@ -47,13 +47,16 @@ int main(void)
 {
     std::string strName, strMajor, strStudentID;
 
+
     strName = selfIntro::name();
     strMajor = selfIntro::major();
     strStudentID = selfIntro::studentID();
 
+
     selfIntro::name(strName);
     selfIntro::major(strMajor);
     selfIntro::studentID(strStudentID);
+
 
     return 0;
 }
