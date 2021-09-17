@@ -35,4 +35,6 @@ int main(void)
 
         std::cout << ioi << std::endl << oi << std::endl;
     }
+
+    return 0;
 }

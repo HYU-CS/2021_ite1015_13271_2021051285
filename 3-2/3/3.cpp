@@ -40,4 +40,6 @@ int main()
     }
 
     std::cout << groupCount << std::endl;
+
+    return 0;
 }

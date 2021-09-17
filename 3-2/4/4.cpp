@@ -14,5 +14,7 @@ int main(void)
  
     std::cout << str_1 << std::endl; 
     std::cout << str_2 << std::endl; 
-    std::cout << str_3 << std::endl; 
+    std::cout << str_3 << std::endl;
+
+    return 0;
 }
