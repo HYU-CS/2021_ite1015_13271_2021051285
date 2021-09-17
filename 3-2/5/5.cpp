@@ -1,6 +1,6 @@
 #include <iostream>
 
-namespace multi
+namespace multiNS
 {
     int multi(int lhs, int rhs = 2)
     {
@@ -8,9 +8,11 @@ namespace multi
     }
 }
 
+using multiNS::multi;
+
 int main(void)
 {
-    std::cout << multi::multi(3) << std::endl;
+    std::cout << multi(3) << std::endl;
 
     return 0;
 }
