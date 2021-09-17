@@ -7,13 +7,29 @@ int main(void)
 
     int count = 2;
 
-    while(count--)
+    while(count)
     {
+        bool cond = false;
         int ioi = 0;
         int oi = 0;
 
         std::cout << "S = ";
         std::getline(std::cin, str);
+
+        for(size_t i = 0; i < str.length(); i++)
+        {
+            if(str[i] < 'A' || str[i] > 'Z')
+            {
+                cond = true;
+                break;
+            }
+        }
+
+        if(cond)
+        {
+            std::cout << "\"Warning\"" << std::endl;
+            continue;
+        }
 
         for(size_t i = 0; i < str.length(); i++)
         {
@@ -34,6 +50,8 @@ int main(void)
         }
 
         std::cout << ioi << std::endl << oi << std::endl;
+
+        count--;
     }
 
     return 0;

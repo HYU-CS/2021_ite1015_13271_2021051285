@@ -7,6 +7,11 @@ std::string func(void)
     return "Hello world";
 }
 
+std::string func(std::string str_1)
+{
+    return str_1 + " world";
+}
+
 std::string func(std::string str_1, std::string str_2)
 {
     return str_1 + " " + str_2;
