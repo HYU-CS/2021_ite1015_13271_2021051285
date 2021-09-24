@@ -32,6 +32,8 @@ int main(void)
     std::cout << "Min: " << mi << std::endl;
     std::cout << "Average: " << ave << std::endl;
 
+    delete[] numArr;
+
     return 0;
 }
 
