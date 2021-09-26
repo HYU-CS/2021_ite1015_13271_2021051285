@@ -11,10 +11,10 @@ int main(void)
 {
     int x, y;
 
-    std::cout << "x :";
+    std::cout << "x: ";
     std::cin >> x;
 
-    std::cout << "y :";
+    std::cout << "y: ";
     std::cin >> y;
 
     std::cout << "Before call by reference - x: " << x << ", y: " << y << std::endl;
