@@ -10,7 +10,6 @@ private:
 
 public:
     Student(void);
-    Student(std::string name, std::string major, std::string studentID);
     void setName(std::string name);
     void setMajor(std::string major);
     void setStudentID(std::string studentID);
