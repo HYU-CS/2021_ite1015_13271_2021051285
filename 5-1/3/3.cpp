@@ -17,7 +17,7 @@ public:
 };
 
 Student::Student(void)
-: _name(""), _major(""), _studentID("") { }
+: _name(" "), _major(" "), _studentID(" ") { }
 
 void Student::setName(std::string name)
 {
