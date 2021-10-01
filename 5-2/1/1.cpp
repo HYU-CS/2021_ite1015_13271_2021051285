@@ -12,7 +12,7 @@ public:
     Library(int num);
     void setBookInfo(int index, std::string title, std::string author, int price);
     void showBookList(int num);
-    ~Library();
+    ~Library(void);
 };
 
 Library::Library(int num)
@@ -34,7 +34,7 @@ void Library::showBookList(int num)
     }
 }
 
-Library::~Library()
+Library::~Library(void)
 {
     delete[] this->_title;
     delete[] this->_author;
@@ -51,7 +51,7 @@ int main(void)
     std::cin >> num;
     std::cin.ignore();
 
-    Library *lib = new Library(num);
+    Library lib(num);
 
     for(int i = 0; i < num; i++)
     {
@@ -66,12 +66,10 @@ int main(void)
         std::cin >> price;
         std::cin.ignore();
 
-        lib->setBookInfo(i, title, author, price);
+        lib.setBookInfo(i, title, author, price);
     }
 
-    lib->showBookList(num);
-
-    delete lib;
+    lib.showBookList(num);
 
     return 0;
 }
