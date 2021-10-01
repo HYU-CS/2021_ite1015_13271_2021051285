@@ -62,12 +62,8 @@ int main(void)
         std::cin >> second;
 
         T1.setTime(hour, minute, second);
-    }
 
-    std::cout << std::endl;
-
-    {
-        int hour, minute, second;
+        std::cout << std::endl;
 
         std::cout << "Hours: ";
         std::cin >> hour;
