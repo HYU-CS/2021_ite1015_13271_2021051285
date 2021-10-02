@@ -4,30 +4,31 @@
 class Library
 {
 private:
+    size_t _count;
     std::string *_title;
     std::string *_author;
     int *_price;
 
 public:
-    Library(int num);
-    void setBookInfo(int index, std::string title, std::string author, int price);
-    void showBookList(int num);
+    Library(size_t num);
+    void setBookInfo(size_t index, std::string title, std::string author, int price);
+    void showBookList(void);
     ~Library(void);
 };
 
-Library::Library(int num)
-:  _title(new std::string[num]), _author(new std::string[num]), _price(new int[num]) { }
+Library::Library(size_t num)
+: _count(num), _title(new std::string[num]), _author(new std::string[num]), _price(new int[num]) { }
 
-void Library::setBookInfo(int index, std::string title, std::string author, int price)
+void Library::setBookInfo(size_t index, std::string title, std::string author, int price)
 {
     this->_title[index] = title;
     this->_author[index] = author;
     this->_price[index] = price;
 }
 
-void Library::showBookList(int num)
+void Library::showBookList(void)
 {
-    for(size_t i = 0; i < num; i++)
+    for(size_t i = 0; i < this->_count; i++)
     {
         std::cout << "Book " << i + 1 << " : " << this->_title[i] << std::endl;
         std::cout << this->_author[i] << " / " << this->_price[i] << std::endl;
@@ -45,7 +46,7 @@ Library::~Library(void)
 
 int main(void)
 {
-    int num;
+    size_t num;
 
     std::cout << "How many register book : ";
     std::cin >> num;
@@ -53,7 +54,7 @@ int main(void)
 
     Library lib(num);
 
-    for(int i = 0; i < num; i++)
+    for(size_t i = 0; i < num; i++)
     {
         std::string title, author;
         int price;
@@ -69,7 +70,7 @@ int main(void)
         lib.setBookInfo(i, title, author, price);
     }
 
-    lib.showBookList(num);
+    lib.showBookList();
 
     return 0;
 }
