@@ -15,9 +15,21 @@ int main(void)
     {
         rpos = str.find(' ', lpos);
 
-        std::string word = str.substr(lpos, rpos - lpos);
+        std::string word;
+        if(rpos == std::string::npos)
+        {
+            word = str.substr(lpos);
+        }
+        else
+        {
+            word = str.substr(lpos, rpos - lpos);
+        }
 
-        if(maps.find(word) == maps.end())
+        if(word.compare(" ") == 0 || word.length() == 0)
+        {
+            //Do not add to maps
+        }
+        else if(maps.find(word) == maps.end())
         {
             maps[word] = 1;
         }
