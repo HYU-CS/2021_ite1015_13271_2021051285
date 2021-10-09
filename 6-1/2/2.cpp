@@ -4,28 +4,41 @@
 #include <set>
 #include <map>
 
-template <typename T>
-void mergeContainers(T &container1, const T &container2)
+void mergeContainers(std::vector<int> &container1, const std::vector<int> &container2)
 {
-    for(typename T::const_iterator it = container2.begin(); it != container2.end(); it++)
+    for(std::vector<int>::const_iterator it = container2.begin(); it != container2.end(); it++)
     {
         container1.push_back(*it);
     }
 }
 
-template <typename T>
-void mergeContainers(std::set<T> &container1, const std::set<T> &container2)
+void mergeContainers(std::list<int> &container1, const std::list<int> &container2)
 {
-    for(typename std::set<T>::const_iterator it = container2.begin(); it != container2.end(); it++)
+    for(std::list<int>::const_iterator it = container2.begin(); it != container2.end(); it++)
+    {
+        container1.push_back(*it);
+    }
+}
+
+void mergeContainers(std::deque<int> &container1, const std::deque<int> &container2)
+{
+    for(std::deque<int>::const_iterator it = container2.begin(); it != container2.end(); it++)
+    {
+        container1.push_back(*it);
+    }
+}
+
+void mergeContainers(std::set<int> &container1, const std::set<int> &container2)
+{
+    for(std::set<int>::const_iterator it = container2.begin(); it != container2.end(); it++)
     {
         container1.insert(*it);
     }
 }
 
-template <typename KT, typename VT>
-void mergeContainers(std::map<KT, VT> &container1, const std::map<KT, VT> &container2)
+void mergeContainers(std::map<int, int> &container1, const std::map<int, int> &container2)
 {
-    for(typename std::map<KT, VT>::const_iterator it = container2.begin(); it != container2.end(); it++)
+    for(std::map<int, int>::const_iterator it = container2.begin(); it != container2.end(); it++)
     {
         container1.insert(*it);
     }
