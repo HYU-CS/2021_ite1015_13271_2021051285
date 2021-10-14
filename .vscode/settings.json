@@ -52,5 +52,6 @@
         "vector": "cpp",
         "xtree": "cpp",
         "unordered_map": "cpp"
-    }
+    },
+    "cmake.configureOnOpen": false
 }
