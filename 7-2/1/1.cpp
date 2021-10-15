@@ -58,6 +58,8 @@ void ColorPoint::show(void)
     std::cout << " which is on (" << this->x << "," << this->y << ")." << std::endl;
 }
 
+// main function
+
 int main(void)
 {
     ColorPoint cp(5, 5, "RED");
