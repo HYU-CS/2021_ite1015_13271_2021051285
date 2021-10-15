@@ -47,6 +47,10 @@ Printer::Printer(int availableCount, int availablePage)
 
 int Printer::print(int usedPage)
 {
+    if(this->availablePage < usedPage && this->availableCount < usedPage)
+    {
+        return 3;
+    }
     if(this->availablePage < usedPage)
     {
         return 1;
@@ -97,6 +101,10 @@ void InkJetPrinter::print(int usedPage)
     {
         std::cout << "Cannot print because of not enough Ink." << std::endl;
     }
+    else if(result == 3)
+    {
+        std::cout << "Cannot print because of not enough both page and Ink." << std::endl;
+    }
 }
 
 void InkJetPrinter::showInfo(void) const
@@ -130,6 +138,10 @@ void LaserPrinter::print(int usedPage)
     else if(result == 2)
     {
         std::cout << "Cannot print because of not enough Toner." << std::endl;
+    }
+    else if(result == 3)
+    {
+        std::cout << "Cannot print because of not enough both page and Toner." << std::endl;
     }
 }
 
