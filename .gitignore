@@ -4,5 +4,5 @@
 *.pdb
 *.lib
 *.exp
-/jw/**
+/test/**
 /rem.py

@@ -8,6 +8,7 @@
 			"args": [
 				"/Zi",
 				"/EHsc",
+				"/Wall",
 				"/nologo",
 				"/Fe:",
 				"${fileDirname}\\${fileBasenameNoExtension}.exe",
@@ -38,6 +39,7 @@
 				"/Od",
 				"/Zi",
 				"/EHsc",
+				"/Wall",
 				"/nologo",
 				"/Fe:",
 				"${fileDirname}\\${fileBasenameNoExtension}.exe",
