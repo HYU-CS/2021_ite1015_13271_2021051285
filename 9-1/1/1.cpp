@@ -2,10 +2,8 @@
 
 using namespace std;
 
-class Calculator
-{
-    void input(void)
-    {
+class Calculator {
+    void input() {
         cout << "Input 2 integers >> ";
         cin >> a >> b;
     }
@@ -15,8 +13,7 @@ protected:
     virtual int calc(int a, int b) { return 0; }
 
 public:
-    void run(void)
-    {
+    void run() {
         input();
         cout << "Answer : " << calc(a, b) << endl;
     }
@@ -44,7 +41,7 @@ int main(void)
 {
     Calculator *adder = new Adder;
     Calculator *subtractor = new Subtractor;
-    
+
     adder->run();
     subtractor->run();
 
