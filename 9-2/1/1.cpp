@@ -81,6 +81,11 @@ void MyStack::push(int value)
 
 int MyStack::pop(void)
 {
+    if(this->isEmpty())
+    {
+        return 0;
+    }
+    
     return this->arr[--this->size];
 }
 
@@ -132,6 +137,11 @@ void MyQueue::push(int value)
 
 int MyQueue::pop(void)
 {
+    if(this->isEmpty())
+    {
+        return 0;
+    }
+
     int result = this->arr[0];
 
     this->size--;
