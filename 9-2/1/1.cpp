@@ -83,9 +83,9 @@ int MyStack::pop(void)
 {
     if(this->isEmpty())
     {
-        return 0;
+        ::exit(EXIT_FAILURE);
     }
-    
+
     return this->arr[--this->size];
 }
 
@@ -139,7 +139,7 @@ int MyQueue::pop(void)
 {
     if(this->isEmpty())
     {
-        return 0;
+        ::exit(EXIT_FAILURE);
     }
 
     int result = this->arr[0];
