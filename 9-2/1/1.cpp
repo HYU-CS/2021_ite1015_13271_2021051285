@@ -4,7 +4,8 @@ const size_t MEMORY_UNIT = 5;
 
 class Container
 { 
-public: 
+public:
+    Container() { }
     virtual void push(int value) { }
     virtual int pop(void) { return 0; }
     virtual bool isEmpty(void) { return false; }
