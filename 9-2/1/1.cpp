@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 const size_t MEMORY_UNIT = 5;
 
