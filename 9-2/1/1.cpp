@@ -1,12 +1,10 @@
 #include <iostream>
 #include <cstdlib>
 
-const size_t MEMORY_UNIT = 5;
-
 class Container
 { 
 public:
-    Container() { }
+    Container(void) { }
     virtual void push(int value) { }
     virtual int pop(void) { return 0; }
     virtual bool isEmpty(void) { return false; }
@@ -19,6 +17,7 @@ protected:
     int *arr;
     size_t size;
     size_t capacity;
+
 public:
     MyStack(void);
     MyStack(size_t init_cap);
@@ -34,6 +33,7 @@ protected:
     int *arr;
     size_t size;
     size_t capacity;
+
 public:
     MyQueue(void);
     MyQueue(size_t init_cap);
@@ -54,7 +54,7 @@ MyStack::MyStack(size_t init_cap)
 {
     if(this->capacity == 0)
     {
-        this->capacity++;
+        this->capacity = 1;
     }
 
     this->arr = new int[this->capacity];
@@ -111,8 +111,9 @@ MyQueue::MyQueue(size_t init_cap)
 {
     if(this->capacity == 0)
     {
-        this->capacity++;
+        this->capacity = 1;
     }
+
     this->arr = new int[this->capacity];
 }
 
