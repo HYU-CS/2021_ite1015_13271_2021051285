@@ -51,7 +51,8 @@
         "set": "cpp",
         "vector": "cpp",
         "xtree": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "algorithm": "cpp"
     },
     "cmake.configureOnOpen": false
 }
