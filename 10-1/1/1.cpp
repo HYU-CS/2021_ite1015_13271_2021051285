@@ -16,6 +16,7 @@ public:
         result = calculate();
         write();
     }
+    virtual ~RangeCalc() { }  // as class with virtual function have virtual destructor
 };
 
 class RangeAdder: public RangeCalc
