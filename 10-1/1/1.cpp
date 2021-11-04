@@ -102,5 +102,8 @@ int main(void)
     RangeCalc *multiplier = new RangeMultiplier;
     multiplier->run();
 
+    delete adder;
+    delete multiplier;
+
     return 0;
 }
