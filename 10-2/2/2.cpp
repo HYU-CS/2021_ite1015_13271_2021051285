@@ -3,6 +3,9 @@
 #include <string>
 #include <map>
 
+std::map<int, std::string> pizzaSideMenuMap = {{1, "cola"}, {2, "fried potato"}, {3, "sprite"}};
+std::map<int, std::string> chickenSideMenuMap = {{1, "cheese ball"}, {2, "cola"}, {3, "fried potato"}, {4, "sprite"}};
+
 class DeliveryFood
 {
 protected:
@@ -15,7 +18,6 @@ public:
     int getTotalPrice(void) const { return totalPrice; }
     std::string getSideMenu(void) const { return sideMenu; }
     virtual void sideMenuAdd(std::string _sideName) = 0;
-    virtual void sideMenuAdd(int _sideIndex) = 0;
     virtual void showSideMenu(void) = 0;
     virtual void addFood(void) = 0;
 };
@@ -29,7 +31,6 @@ private:
 public:
     Pizza(int price);
     void sideMenuAdd(std::string _sideName);
-    void sideMenuAdd(int _sideIndex);
     void showSideMenu(void);
     void addFood(void);
 };
@@ -39,24 +40,13 @@ Pizza::Pizza(int price)
 
 void Pizza::sideMenuAdd(std::string _sideName)
 {
+    if(_sideName.c_str()[0] >= '0' && _sideName.c_str()[0] <= '9' && _sideName.size() == 1)
+    {
+        _sideName = pizzaSideMenuMap[_sideName.c_str()[0] - '0'];
+    }
+
     this->sideMenu = _sideName;
     this->totalPrice += pizzaSideMenuList[_sideName];
-}
-
-void Pizza::sideMenuAdd(int _sideIndex)
-{
-    int i = 1;
-    
-    for(std::map<std::string, int>::iterator it = this->pizzaSideMenuList.begin(); it != this->pizzaSideMenuList.end(); it++)
-    {
-        if(i == _sideIndex)
-        {
-            this->sideMenuAdd(it->first);
-            break;
-        }
-
-        i++;
-    }
 }
 
 void Pizza::showSideMenu(void)
@@ -85,34 +75,22 @@ private:
 public:
     Chicken(int price);
     void sideMenuAdd(std::string _sideName);
-    void sideMenuAdd(int _sideIndex);
     void showSideMenu(void);
     void addFood(void);
 };
 
 Chicken::Chicken(int price)
-: price(price), ChickenSideMenuList({{"cheese ball", 4000}, {"cola", 2000}, {"fried potato", 3000}}) { }
+: price(price), ChickenSideMenuList({{"cheese ball", 4000}, {"cola", 2000}, {"fried potato", 3000}, {"sprite", 2000}}) { }
 
 void Chicken::sideMenuAdd(std::string _sideName)
 {
+    if(_sideName.c_str()[0] >= '0' && _sideName.c_str()[0] <= '9' && _sideName.size() == 1)
+    {
+        _sideName = chickenSideMenuMap[_sideName.c_str()[0] - '0'];
+    }
+
     this->sideMenu = _sideName;
     this->totalPrice += ChickenSideMenuList[_sideName];
-}
-
-void Chicken::sideMenuAdd(int _sideIndex)
-{
-    int i = 1;
-    
-    for(std::map<std::string, int>::iterator it = this->ChickenSideMenuList.begin(); it != this->ChickenSideMenuList.end(); it++)
-    {
-        if(i == _sideIndex)
-        {
-            this->sideMenuAdd(it->first);
-            break;
-        }
-
-        i++;
-    }
 }
 
 void Chicken::showSideMenu(void)
@@ -132,7 +110,7 @@ void Chicken::addFood(void)
 
 void chooseSideMenu(DeliveryFood *food)
 {
-    int sideMenuNum;
+    std::string sideMenuNum;
 
     food->showSideMenu();
     std::cout << "select side menu : ";
@@ -189,6 +167,11 @@ int main(void)
     chooseSideMenu(chosenFood);
 
     std::cout << foodName << ", " << chosenFood->getSideMenu() << " total price : " << chosenFood->getTotalPrice() << std::endl;
+
+    delete margheritaPizza;
+    delete gorgonzolaPizza;
+    delete friedChicken;
+    delete spicyChicken;
     
     return 0;
 }
