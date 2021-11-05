@@ -93,7 +93,7 @@ void MyVector::pop_back(void)
     }
     else
     {
-        this->size--;
+        std::cout << this->arr[--this->size] << " ";
     }
 }
 
