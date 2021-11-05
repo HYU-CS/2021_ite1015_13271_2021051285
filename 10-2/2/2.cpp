@@ -15,6 +15,7 @@ public:
     int getTotalPrice(void) const { return totalPrice; }
     std::string getSideMenu(void) const { return sideMenu; }
     virtual void sideMenuAdd(std::string _sideName) = 0;
+    virtual void sideMenuAdd(int _sideIndex) = 0;
     virtual void showSideMenu(void) = 0;
     virtual void addFood(void) = 0;
 };
@@ -27,8 +28,8 @@ private:
 
 public:
     Pizza(int price);
-    ~Pizza();
     void sideMenuAdd(std::string _sideName);
+    void sideMenuAdd(int _sideIndex);
     void showSideMenu(void);
     void addFood(void);
 };
@@ -38,7 +39,39 @@ Pizza::Pizza(int price)
 
 void Pizza::sideMenuAdd(std::string _sideName)
 {
+    this->sideMenu = _sideName;
     this->totalPrice += pizzaSideMenuList[_sideName];
+}
+
+void Pizza::sideMenuAdd(int _sideIndex)
+{
+    int i = 1;
+    
+    for(std::map<std::string, int>::iterator it = this->pizzaSideMenuList.begin(); it != this->pizzaSideMenuList.end(); it++)
+    {
+        if(i == _sideIndex)
+        {
+            this->sideMenuAdd(it->first);
+            break;
+        }
+
+        i++;
+    }
+}
+
+void Pizza::showSideMenu(void)
+{
+    int i = 1;
+
+    for(std::map<std::string, int>::iterator it = this->pizzaSideMenuList.begin(); it != this->pizzaSideMenuList.end(); it++)
+    {
+        std::cout << i++ << ". " << it->first << " " << it->second << std::endl;
+    }
+}
+
+void Pizza::addFood(void)
+{
+    this->totalPrice += this->price;
 }
 
 
@@ -52,6 +85,7 @@ private:
 public:
     Chicken(int price);
     void sideMenuAdd(std::string _sideName);
+    void sideMenuAdd(int _sideIndex);
     void showSideMenu(void);
     void addFood(void);
 };
@@ -59,9 +93,53 @@ public:
 Chicken::Chicken(int price)
 : price(price), ChickenSideMenuList({{"cheese ball", 4000}, {"cola", 2000}, {"fried potato", 3000}}) { }
 
+void Chicken::sideMenuAdd(std::string _sideName)
+{
+    this->sideMenu = _sideName;
+    this->totalPrice += ChickenSideMenuList[_sideName];
+}
+
+void Chicken::sideMenuAdd(int _sideIndex)
+{
+    int i = 1;
+    
+    for(std::map<std::string, int>::iterator it = this->ChickenSideMenuList.begin(); it != this->ChickenSideMenuList.end(); it++)
+    {
+        if(i == _sideIndex)
+        {
+            this->sideMenuAdd(it->first);
+            break;
+        }
+
+        i++;
+    }
+}
+
+void Chicken::showSideMenu(void)
+{
+    int i = 1;
+
+    for(std::map<std::string, int>::iterator it = this->ChickenSideMenuList.begin(); it != this->ChickenSideMenuList.end(); it++)
+    {
+        std::cout << i++ << ". " << it->first << " " << it->second << std::endl;
+    }
+}
+
+void Chicken::addFood(void)
+{
+    this->totalPrice += this->price;
+}
+
 void chooseSideMenu(DeliveryFood *food)
 {
-    
+    int sideMenuNum;
+
+    food->showSideMenu();
+    std::cout << "select side menu : ";
+
+    std::cin >> sideMenuNum;
+
+    food->sideMenuAdd(sideMenuNum);
 }
 
 int main(void)
@@ -79,21 +157,26 @@ int main(void)
     std::cout << "choose food : ";
     std::cin >> chooseFoodNum;
 
+    std::string foodName;
     DeliveryFood* chosenFood;
 
     switch(chooseFoodNum)
     {
         case 1:
             chosenFood = margheritaPizza;
+            foodName = "margherita pizza";
             break;
         case 2:
             chosenFood = gorgonzolaPizza;
+            foodName = "gorgonzola pizza";
             break;
         case 3:
             chosenFood = friedChicken;
+            foodName = "fried chicken";
             break;
         case 4:
             chosenFood = spicyChicken;
+            foodName = "spicy chicken";
             break;
         
         default:
@@ -104,6 +187,8 @@ int main(void)
     chosenFood->addFood();
 
     chooseSideMenu(chosenFood);
+
+    std::cout << foodName << ", " << chosenFood->getSideMenu() << " total price : " << chosenFood->getTotalPrice() << std::endl;
     
     return 0;
 }
