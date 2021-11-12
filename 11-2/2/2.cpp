@@ -12,7 +12,7 @@ private:
 public:
     TestProblem(void);
     TestProblem(const TestProblem& testProblem);
-    ~TestProblem();
+    ~TestProblem(); // if destructor needed (actually there's no need to implement in main function but)
     void setSubScore(std::string key, int score);
     int getProblemScore(void);
     void show(void);
@@ -84,6 +84,6 @@ int main(void)
     std::cout << "problem2 score : " << problem2.getProblemScore() << std::endl;
 
     TestProblem::showTotalScore();
-    
+
     return 0;
 }
