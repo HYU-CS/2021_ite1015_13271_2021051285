@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 template <typename T>
 class Container
@@ -71,7 +72,14 @@ void MyStack<T>::push(T value)
 template <typename T>
 T MyStack<T>::pop(void)
 {
-    return this->arr[--this->size];
+    if(this->isEmpty())
+    {
+        ::exit(EXIT_FAILURE);
+    }
+    else
+    {
+        return this->arr[--this->size];
+    }
 }
 template <typename T>
 bool MyStack<T>::isEmpty(void)
