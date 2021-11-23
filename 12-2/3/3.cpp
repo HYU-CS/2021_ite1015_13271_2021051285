@@ -9,10 +9,7 @@ void MyCopy(InputIt first, InputIt last, OutputIt result)
 
     while(iIt != last)
     {
-        *oIt = *iIt;
-
-        iIt++;
-        oIt++;
+        *oIt++ = *iIt++;
     }
 }
 
@@ -22,20 +19,27 @@ void MyMerge(InputIt1 first_1, InputIt1 last_1, InputIt2 first_2, InputIt2 last_
     InputIt1 i1It = first_1;
     InputIt2 i2It = first_2;
     OutputIt oIt = result;
+    
+    while(i1It != last_1 && i2It != last_2)
+    {
+        if(*i1It < *i2It)
+        {
+            *oIt++ = *i1It++;
+        }
+        else
+        {
+            *oIt++ = *i2It++;
+        }
+    }
 
     while(i1It != last_1)
     {
-        *oIt = *i1It;
-
-        i1It++;
-        oIt++;
+        *oIt++ = *i1It++;
     }
+    
     while(i2It != last_2)
     {
-        *oIt = *i2It;
-
-        i2It++;
-        oIt++;
+        *oIt++ = *i2It++;
     }
 }
 
