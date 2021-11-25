@@ -1,16 +1,28 @@
 #include <iostream>
-#include <exception>
 
-class InvalidInputException : public std::exception
+class Exceptions
 {
-    virtual const char* what() const noexcept
+public:
+    virtual const char* what() const = 0;
+    virtual ~Exceptions() {}
+    void print(void) const noexcept
+    {
+        std::cerr << this->what() << std::endl;
+    }
+    
+};
+class InvalidInputException : public Exceptions
+{
+public:
+    const char* what() const noexcept
     {
         return "Negative value input exception";
     }
 };
-class DivideByZeroException : public std::exception
+class DivideByZeroException : public Exceptions
 {
-    virtual const char* what() const noexcept
+public:
+    const char* what() const noexcept
     {
         return "Divide by zero exception";
     }
@@ -42,9 +54,9 @@ int main(void)
         result = divide(x, y);
         std::cout << result << std::endl;
     }
-    catch(const std::exception& e)
+    catch(const Exceptions& e)
     {
-        std::cerr << e.what() << std::endl;
+        e.print();
     }
     
 }
