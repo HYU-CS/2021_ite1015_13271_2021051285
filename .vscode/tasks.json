@@ -17,7 +17,7 @@
 			"options": {
 				"cwd": "${workspaceFolder}",
 				"env": {
-					"PATH": "${env:PATH};C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\Common7\\Tools",
+					"PATH": "${env:PATH};C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\Tools",
 					"BUILD": "cmd /c chcp 65001 >nul && VsDevCmd.bat -arch=x64 >nul && cl.exe"
 				}
 			},
@@ -48,7 +48,7 @@
 			"options": {
 				"cwd": "${workspaceFolder}",
 				"env": {
-					"PATH": "${env:PATH};C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\Common7\\Tools",
+					"PATH": "${env:PATH};C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\Tools",
 					"BUILD": "cmd /c chcp 65001 >nul && VsDevCmd.bat -arch=x64 >nul && cl.exe"
 				}
 			},
