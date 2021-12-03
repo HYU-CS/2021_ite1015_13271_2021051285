@@ -67,9 +67,3 @@ void print_stats(const _Sqt& sq)
     std::cout << "Variance: " << variance << std::endl;
     std::cout << "Standard Deviation: " << standardDeviation << std::endl;
 }
-
-int main(void)
-{
-    std::list<int> a = {1, 2, 3, 4, 5, 6, 7, 8};
-    print_stats(a);
-}
