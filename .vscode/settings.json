@@ -62,7 +62,8 @@
         "xlocmon": "cpp",
         "xloctime": "cpp",
         "array": "cpp",
-        "forward_list": "cpp"
+        "forward_list": "cpp",
+        "numeric": "cpp"
     },
     "cmake.configureOnOpen": false
 }
